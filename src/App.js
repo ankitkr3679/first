@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <Router basename="/React_Burger_Hub">
+    <Router basename="/first">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
