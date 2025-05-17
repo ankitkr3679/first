@@ -10,33 +10,40 @@ permissions:
   id-token: write
 
 env:
-  CONTENT_ISLAND_SECRET_TOKEN: ${{secrets.CONTENT_ISLAND_SECRET_TOKEN}}
+  NODE_ENV: production
+  CONTENT_ISLAND_SECRET_TOKEN: ${{ secrets.CONTENT_ISLAND_SECRET_TOKEN }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{steps.deploy.outputs.page_url}}
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - name: Clone repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install
-        run: npm ci
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install  # Use `npm ci` only when lockfile is 100% in sync
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build
-        run: npm run build -- --base "${{steps.pages.outputs.base_path}}"
+      - name: Build Project
+        run: npm run build
 
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
-        
-      - name: Deploy
+          path: ./build  # CRA outputs to "build", not "dist"
+
+      - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
