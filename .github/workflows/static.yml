@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  pages: write
+  id-token: write
+
+env:
+  CONTENT_ISLAND_SECRET_TOKEN: ${{secrets.CONTENT_ISLAND_SECRET_TOKEN}}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{steps.deploy.outputs.page_url}}
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Install
+        run: npm ci
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        run: npm run build -- --base "${{steps.pages.outputs.base_path}}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+        
+      - name: Deploy
+        id: deploy
+        uses: actions/deploy-pages@v4
