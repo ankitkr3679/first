@@ -29,7 +29,7 @@ const mockData = [
 function Section2() {
     return (
         <>
-            <section className='about_section'>
+            <section  id="about" className='about_section'>
                 <Container>
                     <Row>
                         <Col lg={{ span: 8, offset: 2 }} className='text-center'>

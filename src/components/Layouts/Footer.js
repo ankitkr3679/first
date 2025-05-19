@@ -7,7 +7,7 @@ function Footer() {
     <footer>
       <Container>
         <Row>
-          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
+          <Col xs={6} sm={6} lg={3} className='mb-4  mb-lg-0'>
             <div className='text-center'>
               <h5>Location</h5>
               <p>North East, District</p>
@@ -15,7 +15,7 @@ function Footer() {
               <p>India</p>
             </div>
           </Col>
-          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
+          <Col  xs={6} sm={6} lg={3} className='mb-4   mb-lg-0'>
             <div className='text-center'>
               <h5>Working Hours</h5>
               <p>Mon-Fri: 9:00AM - 10:00PM</p>
@@ -23,7 +23,7 @@ function Footer() {
               <p>Sunday: 12:00PM - 5:00PM</p>
             </div>
           </Col>
-          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
+          <Col xs={6} sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Order Now</h5>
               <p>Quaerat neque purus ipsum</p>
@@ -34,7 +34,7 @@ function Footer() {
               </p>
             </div>
           </Col>
-          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
+          <Col xs={6} sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Follow Us</h5>
               <p>Quaerat neque purus ipsum</p>

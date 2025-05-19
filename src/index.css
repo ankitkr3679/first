@@ -29,6 +29,10 @@
   --brown: #6f5e4d;
   --bg-coffee: #642f21;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 body, html {
   font-size: 1rem;

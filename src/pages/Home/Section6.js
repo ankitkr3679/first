@@ -10,7 +10,7 @@ import User5 from "../../assets/blog/review-author-5.jpg";
 function Section6() {
     return (
        <>
-         <section className='blog_section'>
+         <section id="blog" className='blog_section'>
             <Container>
                 <Row>
                     <Carousel>

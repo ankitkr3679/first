@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Section7() {
     return (
-        <section className='contact_section'>
+        <section id="contact" className='contact_section'>
             <Container>
                 <Row className='justify-content-center'>
                     <Col sm={8} className='text-center'>
